@@ -11,8 +11,11 @@ import java.util.UUID;
 @Repository
 public interface TaskRepo extends JpaRepository<Task, UUID> {
 
+//    JPA automatically executes queries for these function names
     List<Task> findByTaskListId(UUID taskListId);
 
     Optional<Task> findByTaskListIdAndId(UUID taskListId, UUID id);
+
+    void deleteByTaskListIdAndId(UUID taskListId, UUID id);
 
 }

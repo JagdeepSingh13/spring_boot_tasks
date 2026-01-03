@@ -47,8 +47,9 @@ public class TaskListMapperImpl implements TaskListMapper {
                         .orElse(0),
                 calculateTaskListProgress(taskList.getTasks()),
                 Optional.ofNullable(taskList.getTasks())
-                        .map(tasks ->
-                                tasks.stream().map(taskMapper::toDto).toList()
+                        .map(tasks -> tasks.stream()
+                                .map(taskMapper::toDto)
+                                .toList()
                         ).orElse(null)
                 );
     }
